@@ -1,14 +1,10 @@
 cookiecutter-cpp
 ================
 
-A test-driven C++ project template built on CMake and GoogleTest
-
-[![Build Status]
-    (https://travis-ci.org/hbristow/cookiecutter-cpp.svg)]
-    (https://travis-ci.org/hbristow/cookiecutter-cpp)
+A test-driven C++ project template built on CMake and Catch2
 
 Usage:
 ------
 
     $ pip install cookiecutter
-    $ cookiecutter gh:hbristow/cookiecutter-cpp
+    $ cookiecutter gh:mjscosta/cookiecutter-cpp

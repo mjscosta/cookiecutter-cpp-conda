@@ -97,7 +97,5 @@ Public License instead of this License.  But first, please read
 <http://www.gnu.org/philosophy/why-not-lgpl.html>.
 {% elif cookiecutter.open_source_license == 'Not open source' %}
 Copyright (c) {% now 'local', '%Y' %}, {{ cookiecutter.organization }}
-
 Written by {{ cookiecutter.author }} <{{ cookiecutter.email }}>. 
-
 {% endif %}
