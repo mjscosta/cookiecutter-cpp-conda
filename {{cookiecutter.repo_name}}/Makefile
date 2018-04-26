@@ -1,6 +1,6 @@
 # Build all targets
 all: configure
-	@ make -C build
+	@ cmake --build build --target all
 
 # Build the documentation (Doxygen)
 doc: configure
@@ -8,16 +8,16 @@ doc: configure
 
 # Build all targets and run the test suite
 test: configure
-	@ make {{ cookiecutter.project_name }}_test -C build
-	@ make test -C build
+	@ cmake --build build --target {{ cookiecutter.project_name }}_test
+	@ cmake --build build --target test
 
 # Build and install all targets
 install: all
-	@ make install -C build
+	@ cmake --build build --target install
 
 # Configure the targets (CMake)
 configure:
-	@ cd build && cmake ..
+	@ cd build && conan install .. && cmake ..
 
 # Clean the build directory
 clean:
