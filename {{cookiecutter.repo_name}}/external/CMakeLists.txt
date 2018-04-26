@@ -1,1 +1,1 @@
-include(gtest.cmake)
+include(catch2.cmake)

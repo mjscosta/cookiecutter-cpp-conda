@@ -1,5 +1,6 @@
-#include <gtest/gtest.h>
+#define CATCH_CONFIG_MAIN
+#include "catch.h" 
 
-TEST({{ cookiecutter.project_name | capitalize }}Test, Contrived) {
-    EXPECT_TRUE(true);
+TEST("{{ cookiecutter.project_name | capitalize }}Test", "[all]") {
+    REQUIRE( 1 == 1 );
 }
