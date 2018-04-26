@@ -1,6 +1,6 @@
 #define CATCH_CONFIG_MAIN
-#include "catch.h" 
+#include "catch.hpp" 
 
-TEST("{{ cookiecutter.project_name | capitalize }}Test", "[all]") {
+TEST_CASE("{{ cookiecutter.project_name | capitalize }}Test", "[all]") {
     REQUIRE( 1 == 1 );
 }

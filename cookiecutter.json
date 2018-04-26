@@ -5,6 +5,7 @@
     "check_style": true,
     "pedantic": true,
     "version": "0.0.1",
+    "cpp_standard": ["11","14","98"],
     "year": 2018,
     "author": "First Last",
     "organization": "Organization Name",

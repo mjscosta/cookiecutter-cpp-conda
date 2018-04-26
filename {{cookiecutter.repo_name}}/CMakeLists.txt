@@ -10,7 +10,12 @@ set(PROJECT_VERSION_MAJOR "{{ cookiecutter.version.split('.')[0] }}")
 set(PROJECT_VERSION_MINOR "{{ cookiecutter.version.split('.')[1] }}")
 set(PROJECT_VERSION_PATCH "{{ cookiecutter.version.split('.')[2] }}")
 
+# make sure you execute "conan install .." in the build directory
+include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
+conan_basic_setup(TARGETS)
+
 # Build flags
+set (CMAKE_CXX_STANDARD {{ cookiecutter.cpp_standard }})
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3 -march=native")
 {% if cookiecutter.pedantic -%}
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Werror -pedantic")
