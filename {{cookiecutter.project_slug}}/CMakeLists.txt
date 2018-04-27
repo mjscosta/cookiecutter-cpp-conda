@@ -25,7 +25,6 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Werror -pedantic")
 # ---------------------------------------------------------
 # Features
 # ---------------------------------------------------------
-add_subdirectory(external)
 add_subdirectory(src)
 
 enable_testing()
