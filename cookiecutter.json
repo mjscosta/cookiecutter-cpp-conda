@@ -1,0 +1,18 @@
+{
+    "project_slug": "rock",
+    "project_slug": "{{ cookiecutter.project_slug.lower().replace(' ', '_').replace('-', '_') }}",
+    "git_server": ["bitbucket.org", "github.com"],
+    "description": "A rock solid project with enforced style, testing and static analysis",
+    "check_style": true,
+    "pedantic": false,
+    "version": "0.0.1",
+    "cpp_standard": ["11","14","98"],
+    "year": 2018,
+    "author": "First Last",
+    "email": "{{ cookiecutter.author.split()[0]|lower }}@eyeware.tech",
+    "organization": "Eyeware Tech SA",
+    "username": "{{ cookiecutter.author|first|lower }}{{ cookiecutter.author.split()|last|lower }}",
+    "open_source_license": ["Not open source", "MIT license", "BSD license", "ISC license", "Apache Software License 2.0", "GNU General Public License v3"],
+    "branch": "master",
+    "remote": "origin"
+}
