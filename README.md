@@ -9,4 +9,4 @@ Usage:
 ------
 
     $ pip install cookiecutter
-    $ cookiecutter gh:mjscosta/cookiecutter-cpp
+    $ cookiecutter gh:eyeware/cookiecutter-cpp
