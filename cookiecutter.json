@@ -1,6 +1,6 @@
 {
-    "project_slug": "rock",
-    "project_slug": "{{ cookiecutter.project_slug.lower().replace(' ', '_').replace('-', '_') }}",
+    "project_name": "rock",
+    "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
     "git_server": ["bitbucket.org", "github.com"],
     "description": "A rock solid project with enforced style, testing and static analysis",
     "check_style": true,
