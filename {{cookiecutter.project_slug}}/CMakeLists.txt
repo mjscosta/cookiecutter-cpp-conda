@@ -1,11 +1,11 @@
-# {{ cookiecutter.project_slug }}
+# {{ cookiecutter.project_name }}
 # {{ cookiecutter.description }}
 # Copyright {{ cookiecutter.year }}, {{ cookiecutter.author }}
 cmake_minimum_required(VERSION 3.1)
 project({{ cookiecutter.project_slug }} C CXX)
 set(PROJECT_DESCRIPTION   "{{ cookiecutter.description }}")
 set(PROJECT_AUTHOR        "{{ cookiecutter.author }}")
-#set(PROJECT_URL           "https://github.com/{{ cookiecutter.username }}/{{ cookiecutter.repo_name }}")
+set(PROJECT_URL           "https://{{ cookiecutter.git_server }}/{{ cookiecutter.username }}/{{ cookiecutter.project_slut }}")
 set(PROJECT_VERSION_MAJOR "{{ cookiecutter.version.split('.')[0] }}")
 set(PROJECT_VERSION_MINOR "{{ cookiecutter.version.split('.')[1] }}")
 set(PROJECT_VERSION_PATCH "{{ cookiecutter.version.split('.')[2] }}")
