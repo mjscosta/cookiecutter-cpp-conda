@@ -19,6 +19,10 @@ install: all
 configure: install_deps
 	@ cd build && cmake ..
 
+# Install development environment
+install_dev_env:
+	@ conda create "$(pwd)/conda-env" -m --file conda_env.yaml
+
 # Install dependencies
 install_deps: build/conanbuildinfo.cmake
 
@@ -43,3 +47,7 @@ check-format:
 	    grep -E "\.(c|h|cpp|hpp|cxx)$$" | \
 	    xargs -n1 clang-format -output-replacements-xml | \
 	    grep "<replacement " > /dev/null
+
+# Bump version
+bump-version:
+	@ bumpversion 
