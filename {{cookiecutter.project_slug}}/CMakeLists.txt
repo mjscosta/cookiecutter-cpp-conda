@@ -2,9 +2,7 @@
 # {{ cookiecutter.description }}
 # Copyright {{ cookiecutter.year }}, {{ cookiecutter.author }}
 cmake_minimum_required(VERSION 3.1)
-project({{ cookiecutter.project_slug }}
-VERSION {{ cookiecutter.version }}
-LANGUAGES C CXX)
+project({{ cookiecutter.project_slug }} VERSION {{ cookiecutter.version }} LANGUAGES C CXX)
 set(PROJECT_DESCRIPTION   "{{ cookiecutter.description }}")
 set(PROJECT_AUTHOR        "{{ cookiecutter.author }}")
 set(PROJECT_URL           "https://{{ cookiecutter.git_server }}/{{ cookiecutter.username }}/{{ cookiecutter.project_slug }}")

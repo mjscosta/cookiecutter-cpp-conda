@@ -1,59 +1,54 @@
-# Build all targets
-all: configure
+all: configure ## Build all targets
 	@ cmake --build build --target all
 
-# Build the documentation (Doxygen)
-doc: configure
+doc: configure ## Build the documentation (Doxygen)
 	@ make doc -C build
 
-# Build all targets and run the test suite
-test: configure
-	@ cmake --build build --target license_manager_test
-	@ cmake --build build --target test
+test: configure ## Build all targets and run the test suite
+	@ cmake --build build --target {{ cookiecutter.project_slug }}_test
+	@ cmake --build build --target test 
 
-# Build and install all targets
-install: all
+install: all ## Build and install all targets
 	@ cmake --build build --target install
 
-# Configure the targets (CMake)
-configure: install_deps
+configure: install_deps ## Configure the targets (CMake)
 	@ cd build && cmake ..
 
-# Install development environment
-install_dev_env:
-	@ conda env create -f conda_env.yaml
-	@ conda activate {{ project_slug }}
-	@ ./scripts/provision_ubuntu.sh
+install_env: ## Install conda development environment
+	conda env create -f conda_env.yaml
 
-# Activate conda environment, that is related to this project.
-activate:
-	@ conda activate {{ project_slug }}
+provision: ## Provision build dependencies for the ubuntu/debian operating system environment.
+	./scripts/provision.sh
 
-# Install dependencies
-install_deps: build/conanbuildinfo.cmake
+install_deps: | build build/conanbuildinfo.cmake ## Install dependencies from conan
 
 build/conanbuildinfo.cmake: conanfile.txt
-	@ cd build && conan install .. 
+	@ cd build && conan install ..
 
-# Clean the build directory
-clean:
+build: ## Create build directory
+	@ mkdir -p $@
+
+clean: ## Clean the build directory
 	@ rm -rf build && mkdir build
 
-# Format all h,hpp,c,cpp,cxx files under version control inplace
-format:
+format: ## Format all h,hpp,c,cpp,cxx files under version control inplace
 	@ { git diff --name-only --diff-filter=ACMRT; \
 	    git diff --name-only --diff-filter=ACRMT --cached; } | \
 	  grep -E "\.(c|h|cpp|hpp|cxx)$$" | \
 	  xargs -n1 clang-format -i
 
-# Check for formatting violations without fixing
-check-format:
+check-format: ## Check for formatting violations without fixing
 	@ ! { git diff --name-only --diff-filter=ACMRT; \
 	      git diff --name-only --diff-filter=ACMRT --cached; } | \
 	    grep -E "\.(c|h|cpp|hpp|cxx)$$" | \
 	    xargs -n1 clang-format -output-replacements-xml | \
 	    grep "<replacement " > /dev/null
 
-# Bump version
-bump-version:
+bump: ## Bump version
 	@ bumpversion 
+
+
+.PHONY: help
+
+help: ## List all targets in the Makefile
+	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
