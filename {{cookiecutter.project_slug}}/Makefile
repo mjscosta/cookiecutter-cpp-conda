@@ -21,7 +21,13 @@ configure: install_deps
 
 # Install development environment
 install_dev_env:
-	@ conda create "$(pwd)/conda-env" -m --file conda_env.yaml
+	@ conda env create -f conda_env.yaml
+	@ conda activate {{ project_slug }}
+	@ ./scripts/provision_ubuntu.sh
+
+# Activate conda environment, that is related to this project.
+activate:
+	@ conda activate {{ project_slug }}
 
 # Install dependencies
 install_deps: build/conanbuildinfo.cmake
