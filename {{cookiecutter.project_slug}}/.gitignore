@@ -49,3 +49,17 @@ CMakeFiles
 **Makefile
 cmake_install.cmake
 install_manifest.txt
+
+# -------------------------------------
+# qtcreator files
+# -------------------------------------
+*.config
+*.creator
+*.files
+*.includes
+*.creator.user
+
+# -------------------------------------
+# CLion files
+# -------------------------------------
+.idea/
