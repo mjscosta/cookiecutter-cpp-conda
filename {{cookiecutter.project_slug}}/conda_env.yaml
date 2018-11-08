@@ -3,7 +3,7 @@ channels:
   - conda-forge
   - defaults
 dependencies:
-  - bumpversion=0.5.3
+  - bump2version=0.5.8
   - python=3.6.6
   - cmake=3.12.4
   - conan=1.9.0
