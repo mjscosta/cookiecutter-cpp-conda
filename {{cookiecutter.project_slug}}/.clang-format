@@ -1,13 +1,5 @@
----
 # clang-format [options]
-# Styles based on Google Style Guide
-BasedOnStyle:           Google
-Language:               Cpp
-AccessModifierOffset:   -4
-IndentCaseLabels:       false
-IndentWidth:            4
-TabWidth:               4
-ColumnLimit:            100
-AllowShortFunctionsOnASingleLine:   Inline
-AllowShortBlocksOnASingleLine:      false
-ConstructorInitializerIndentWidth:  8
+# Styles based on LLVM Style Guide
+Language:        Cpp
+BasedOnStyle:  LLVM
+ColumnLimit:     100
