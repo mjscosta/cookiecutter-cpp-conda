@@ -4,6 +4,8 @@
 
 {{ cookiecutter.description }}
 
+This project is a template from ``gh:eyeware/cookiecutter-cpp`` cookiecutter. For improvements and changes, please contact the coockiecuter author.
+
 .. sectnum::
 .. contents:: Table of Contents
 
@@ -85,6 +87,16 @@ Publish Code
 
 Before publishing code you should check the formatting and make sure all tests are passing.
 There are pre-commit hooks for git installed in the git repository to enforce these topics locally.
+
+Code Checks
+-----------
+
+- **formating** - `LLVM Code Style`_
+- **lint** - TODO: clang linter or cpplint
+- **test code coverage** - TODO: gcov
+- **test reports** - TODO: 
+
+.. _`LLVM Code Style`: https://llvm.org/docs/CodingStandards.html
 
 
 Versioning
