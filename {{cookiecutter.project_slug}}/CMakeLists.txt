@@ -7,23 +7,58 @@ set(PROJECT_DESCRIPTION   "{{ cookiecutter.description }}")
 set(PROJECT_AUTHOR        "{{ cookiecutter.author }}")
 set(PROJECT_URL           "https://{{ cookiecutter.git_server }}/{{ cookiecutter.username }}/{{ cookiecutter.project_slug }}")
 
-# make sure you execute "conan install .." in the build directory
+
+# ------------------------------------------------------------------------------
+# Add external cmake modules to project.
+# Add find_<package_name> files to cmake-modules directory.
+# ------------------------------------------------------------------------------
+
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake-modules")
+
+
+# Make sure you execute "conan install .." in the build directory
 include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
 conan_basic_setup(TARGETS)
 
 # Build flags
 set (CMAKE_CXX_STANDARD {{ cookiecutter.cpp_standard }})
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3 -march=native")
+
+include(CodeCoverage)
+
+
+APPEND_COVERAGE_COMPILER_FLAGS()
+
+# ------------------------------------------------------------------------------
+# Setup Compiler Flags
+# ------------------------------------------------------------------------------
+
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall")
+
+# make sure you want to use -march=native
+set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -O3")
 {% if cookiecutter.pedantic -%}
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Werror -pedantic")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wextra -Werror -pedantic")
 {%- endif %}
 
 
-# ---------------------------------------------------------
+# ------------------------------------------------------------------------------
 # Features
-# ---------------------------------------------------------
+# ------------------------------------------------------------------------------
 add_subdirectory(src)
 
+
+
+# ------------------------------------------------------------------------------
+# Setup tests and checks
+# ------------------------------------------------------------------------------
+
+# (catch must be configured to generate a main class per test).
+
 enable_testing()
+set(CTEST_OUTPUT_ON_FAILURE 1)
+
+setup_target_for_coverage_gcovr_html( ${PROJECT_NAME}_test )
+
+
 add_subdirectory(test)
 add_subdirectory(doc)

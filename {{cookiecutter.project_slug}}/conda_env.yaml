@@ -7,5 +7,7 @@ dependencies:
   - python=3.6.6
   - cmake=3.12.4
   - conan=1.9.0
-  - gcc=4.8.5
+  - gxx_linux-64=7.3.0  
   - doxygen=1.8.14
+  - pip:
+    - gcovr==4.1

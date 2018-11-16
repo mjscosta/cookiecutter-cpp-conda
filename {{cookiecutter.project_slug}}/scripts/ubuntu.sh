@@ -14,4 +14,5 @@
 # packages.
 #------------------------------------------------------------------------------
 
-sudo apt-get install -y clang-format-4.0
+apt-get install -y clang-format
+apt-get install -y lcov gcovr

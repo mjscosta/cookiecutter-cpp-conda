@@ -93,7 +93,7 @@ Code Checks
 
 - **formating** - `LLVM Code Style`_
 - **lint** - TODO: clang linter or cpplint
-- **test code coverage** - TODO: gcov
+- **test code coverage** - TODO: underway lcov gcov
 - **test reports** - TODO: 
 
 .. _`LLVM Code Style`: https://llvm.org/docs/CodingStandards.html
