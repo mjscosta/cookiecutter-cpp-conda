@@ -1,8 +1,7 @@
 # Tests for {{ cookiecutter.project_slug }}
 
 # Add here additional source files
-add_executable(${PROJECT_NAME}_test
-        {{cookiecutter.project_slug}}/test/test_{{cookiecutter.project_slug}}.cpp)
+add_executable( ${PROJECT_NAME}_test test_{{cookiecutter.project_slug}}.cpp )
 
 # make sure you execute "conan install .." in the build directory
 target_link_libraries(${PROJECT_NAME}_test ${PROJECT_NAME}_lib CONAN_PKG::catch2)
