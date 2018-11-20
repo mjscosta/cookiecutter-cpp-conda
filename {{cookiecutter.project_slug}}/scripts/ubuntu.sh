@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # @author: Mario Costa
 # @date: 06/11/2018
  
