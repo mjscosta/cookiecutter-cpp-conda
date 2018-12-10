@@ -26,7 +26,9 @@ while getopts ":c:" opt; do
 done
 shift $((OPTIND-1))
 
-if [ -z "$CONDA_USER" ]; then usage ; fi
+LINUX_ARGS_=""
+
+if [ ! -z "$CONDA_USER" ]; then LINUX_ARGS_="$LINUX_ARGS_ -c $CONDA_USER" ; fi
 
 #------------------------------------------------------------------------------
 # Get Current Script Source Dir. This Macro Needs to Duplicated ...
@@ -67,5 +69,5 @@ $DIR_/$DISTRO_.sh
 # if using snap, and other alike linux distro independent tools add here
 
 # install conda
-$DIR_/linux.sh -c $CONDA_USER
+$DIR_/linux.sh $LINUX_ARGS_
 

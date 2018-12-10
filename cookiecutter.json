@@ -7,6 +7,7 @@
     "pedantic": false,
     "version": "0.0.1",
     "cpp_standard": ["11","14","98"],
+    "compiler": ["gcc-4.8.5","gcc-7.3"],
     "year": 2018,
     "author": "First Last",
     "email": "{{ cookiecutter.author.split()[0]|lower }}@eyeware.tech",

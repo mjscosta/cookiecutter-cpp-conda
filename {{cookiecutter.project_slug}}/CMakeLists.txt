@@ -25,7 +25,6 @@ set (CMAKE_CXX_STANDARD {{ cookiecutter.cpp_standard }})
 
 include(CodeCoverage)
 
-
 APPEND_COVERAGE_COMPILER_FLAGS()
 
 # ------------------------------------------------------------------------------

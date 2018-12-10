@@ -19,7 +19,7 @@ Vagrant.configure("2") do |config|
   # This is a multi-machine vagrant file, it is meant to support different environments for the same build environment.
   config.vm.define "alpine64" do |alpine64|
     alpine64.vm.box = "alpine/alpine64"
-    alpine64.vm.box_version = "3.6.0"
+    alpine64.vm.box_version = "3.7.0"
 
   end
 

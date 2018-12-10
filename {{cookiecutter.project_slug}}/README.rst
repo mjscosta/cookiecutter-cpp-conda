@@ -18,7 +18,13 @@ Boot Native Environments
 ========================
 
 To boostrap the native development environment execute the script
-``scripts\provision.sh``.
+``scripts\provision.sh -c <conda user>``.
+For native machines, use ``scripts\provision.sh -c root``.
+For vagrant vms, use ``scripts\provision.sh -c vagrant``
+
+- <conda user> : Miniconda user, that will have permissions to add remove
+packages of the root environment.
+
 
 Boot Virtualized Environments (Vagrant)
 =======================================

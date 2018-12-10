@@ -4,10 +4,10 @@
 CONDA_VER="4.5.11"
 
 usage() {
-  echo "$(basename $0)" "-c conda_username"
+  echo "$(basename $0)" "[-u conda_username]"
   echo
-  echo "-c conda_username - username for which conda will install, allowing the user to \
-add packages to the root environment" >&2
+  echo "-u conda_username - username for which conda will install, allowing the user to \
+add packages to the root environment. root if none is defined." >&2
   exit 1
 }
 
@@ -27,14 +27,15 @@ while getopts ":u:" opt; do
 done
 shift $((OPTIND-1))
 
-if [ -z "$CONDA_USER" ]; then usage ; fi
+if [ -z "$CONDA_USER" ]; then CONDA_USER=root ; fi
 
 CONDA_HOME=/opt/conda
 
 # Get Miniconda3 and make it the main Python interpreter
 if [ ! -d $CONDA_HOME ]; then
+    echo "Downloading and Installing Miniconda3"
     curl -s -L https://repo.continuum.io/miniconda/Miniconda3-${CONDA_VER}-Linux-x86_64.sh > miniconda.sh && \
-    openssl md5 miniconda.sh | grep 458324438b7b0e5afcc272b63d44195d && \
+    echo e1045ee415162f944b6aebfe560b8fee miniconda.sh | md5sum -c && \
     bash miniconda.sh -b -p $CONDA_HOME && \
     rm miniconda.sh && \
     touch $CONDA_HOME/conda-meta/pinned && \

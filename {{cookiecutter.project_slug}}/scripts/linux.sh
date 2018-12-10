@@ -3,10 +3,10 @@
 # @date: 20/11/2018
 
 usage() {
-  echo "$(basename $0)" "-c conda_username"
+  echo "$(basename $0)" "[-c conda_username]"
   echo
   echo "-c conda_username - username for which conda will install, allowing the user to \
-add packages to the root environment" >&2
+add packages to the root environment. root if none is defined." >&2
   exit 1
 }
 
@@ -26,7 +26,10 @@ while getopts ":c:" opt; do
 done
 shift $((OPTIND-1))
 
-if [ -z "$CONDA_USER" ]; then usage ; fi
+INSTALL_CONTDA_ARGS_=""
+
+
+if [ ! -z "$CONDA_USER" ]; then INSTALL_CONTDA_ARGS_="$INSTALL_CONTDA_ARGS_ -u $CONDA_USER" ; fi
 
 #------------------------------------------------------------------------------
 # Get Current Script Source Dir. This Macro Needs to Duplicated ...
@@ -54,4 +57,4 @@ DIR_="$( cd -P "$( dirname "$SOURCE_" )" >/dev/null && pwd )"
 # Add Here Generic Linux Provisioning Scripts
 #------------------------------------------------------------------------------
 
-$DIR_/install_conda_all_users.sh -u $CONDA_USER
+$DIR_/install_conda_all_users.sh $INSTALL_CONTDA_ARGS_
