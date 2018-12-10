@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # @author: Mario Costa
 # @date: 15/11/2018
 
@@ -16,5 +16,6 @@
 # https://pkgs.alpinelinux.org/packages
 #------------------------------------------------------------------------------
 
-apk add lcov 
+# apk add lcov # not available, only in edge build.
+apk add curl
 apk add gcovr

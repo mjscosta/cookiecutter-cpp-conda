@@ -4,7 +4,8 @@
 
 {{ cookiecutter.description }}
 
-This project is a template from ``gh:eyeware/cookiecutter-cpp`` cookiecutter. For improvements and changes, please contact the coockiecuter author.
+This project is a template from ``gh:eyeware/cookiecutter-cpp`` cookiecutter.
+For improvements and changes, please contact the coockiecuter author.
 
 .. sectnum::
 .. contents:: Table of Contents
@@ -13,14 +14,45 @@ This project is a template from ``gh:eyeware/cookiecutter-cpp`` cookiecutter. Fo
 Setup Project Environment
 -------------------------
 
+Boot Native Environments
+========================
 
-Operating System Packages
-=========================
+To boostrap the native development environment execute the script
+``scripts\provision.sh -c <conda user>``.
+For native machines, use ``scripts\provision.sh -c root``.
+For vagrant vms, use ``scripts\provision.sh -c vagrant``
 
-Linux Ubuntu/Debian:
---------------------
+- <conda user> : Miniconda user, that will have permissions to add remove
+packages of the root environment.
 
-Add to `scripts/provision_ubunto.sh` required packages to be installed in the operating system.
+
+Boot Virtualized Environments (Vagrant)
+=======================================
+
+This project, is prepared to bootstrap a contained linux environment using 
+Vagrant_ and `Multi Machine Vagrant File`_, and different flavours meant for
+interactive development. To initialize one of such environments, choose your
+linux flavour and execute one of the commands below.
+
++------------------+-----------------------------+--------------------------+
+| Operating System | Vagrant Command             | Description              |
++==================+=============================+==========================+
+| ubuntu-16.04     | ``vagrant up ubuntu-16.04`` | ubuntu server ~450M      |
++------------------+-----------------------------+--------------------------+
+| alpine64         | ``vagrant up alpine64``     | low footprint image ~50M |
++------------------+-----------------------------+--------------------------+
+
+Add Operating System Dependencies
+=================================
+
+To add packages to the development environment, edit the respective
+(``ubuntu.sh``, ``alpine.sh``, ...) script under the folder ``scripts`` folder.
+
+
+
+Linux:
+------
+TODO:
 
 Windows:
 --------
@@ -30,9 +62,9 @@ TODO:
 Cross Platform Environment and Dependencies (Miniconda_)
 --------------------------------------------------------
 
-Add to ``conda_env.yaml`` conda packages that are required for the build environment or library dependencies.
-
-You need to have conda installed in your development environment.
+Add to ``conda_env.yaml`` conda packages that are required for the build
+environment or library dependencies. You need to have conda installed in your
+development environment. (see TODO: add link here)
 
 code::
 
@@ -42,6 +74,9 @@ code::
 
 Cross Platform C/C++ Environment and Dependencies (Conan_)
 ----------------------------------------------------------
+
+Add to ``conanfile.txt`` project dependencies, external or internal libraries
+packaged with conan.
 
 ---------------------
 TDD Development Cycle
@@ -127,8 +162,12 @@ References
 .. _`Anaconda Package Repository`: https://anaconda.org/anaconda/repo
 .. _Conan: https://conan.io/
 .. _`Conan Package Repository`: https://bintray.com/conan/conan-center
+.. _Vagrant: https://www.vagrantup.com
+.. _`Multi Machine Vagrant File`: https://www.vagrantup.com/docs/multi-machine/
 
 1. Miniconda_
 2. `Anaconda Package Repository`_
 3. Conan_
 4. `Conan Package Repository`_
+5. Vagrant_
+6. `Multi Machine Vagrant File`_
