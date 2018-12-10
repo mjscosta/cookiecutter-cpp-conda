@@ -56,8 +56,7 @@ add_subdirectory(src)
 enable_testing()
 set(CTEST_OUTPUT_ON_FAILURE 1)
 
-setup_target_for_coverage_gcovr_html( ${PROJECT_NAME}_test )
-
+setup_target_for_coverage_gcovr_html( NAME ${PROJECT_NAME}_cov EXECUTABLE ${PROJECT_NAME}_test )
 
 add_subdirectory(test)
 add_subdirectory(doc)
