@@ -16,3 +16,4 @@
 
 apt-get install -y clang-format
 apt-get install -y lcov gcovr
+apt-get install -y gcc-5

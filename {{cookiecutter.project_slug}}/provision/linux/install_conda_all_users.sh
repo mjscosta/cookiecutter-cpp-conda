@@ -3,32 +3,6 @@
 # TODO: this required to edit the script when the version changed due to md5 check.
 CONDA_VER="4.5.11"
 
-usage() {
-  echo "$(basename $0)" "[-u conda_username]"
-  echo
-  echo "-u conda_username - username for which conda will install, allowing the user to \
-add packages to the root environment. root if none is defined." >&2
-  exit 1
-}
-
-while getopts ":u:" opt; do
-  case $opt in
-    u) CONDA_USER="$OPTARG"
-      ;;
-    \?)
-      echo "Invalid option: -$OPTARG" >&2
-      usage
-      ;;
-    :)
-      echo "Option -$OPTARG requires an argument." >&2
-      usage
-      ;;
-  esac
-done
-shift $((OPTIND-1))
-
-if [ -z "$CONDA_USER" ]; then CONDA_USER=root ; fi
-
 CONDA_HOME=/opt/conda
 
 # Get Miniconda3 and make it the main Python interpreter
@@ -49,7 +23,4 @@ if [ ! -d $CONDA_HOME ]; then
 else
     echo "Miniconda is already installed in $CONDA_HOME"
 fi
-
-# change user permissions to be able to do stuff in the conda
-chown -R $CONDA_USER:$CONDA_USER $CONDA_HOME
 

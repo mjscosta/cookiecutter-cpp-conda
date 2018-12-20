@@ -17,5 +17,6 @@
 #------------------------------------------------------------------------------
 
 # apk add lcov # not available, only in edge build.
-apk add curl
-apk add gcovr
+# apk add curl
+# apk add gcovr # added via miniconda.
+apk add gcc

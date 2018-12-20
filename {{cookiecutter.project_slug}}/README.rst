@@ -4,7 +4,7 @@
 
 {{ cookiecutter.description }}
 
-This project is a template from ``gh:eyeware/cookiecutter-cpp`` cookiecutter.
+This project is a template from ``gh:mjscosta/cookiecutter-cpp`` cookiecutter.
 For improvements and changes, please contact the coockiecuter author.
 
 .. sectnum::
