@@ -4,7 +4,7 @@
 
 {{ cookiecutter.description }}
 
-This project is a template from ``gh:mjscosta/cookiecutter-cpp`` cookiecutter.
+This project is a template from ``gh:practicalci/cookiecutter-cpp`` cookiecutter.
 For improvements and changes, please contact the coockiecuter author.
 
 .. sectnum::
@@ -17,13 +17,12 @@ Setup Project Environment
 Boot Native Environments
 ========================
 
-To boostrap the native development environment execute the script
-``scripts\provision.sh -c <conda user>``.
-For native machines, use ``scripts\provision.sh -c root``.
+To boostrap the native development environment execute the script ``scripts\provision.sh -c <conda user>``.
+For native machines, use ``scripts\provision.sh -c root``. 
 For vagrant vms, use ``scripts\provision.sh -c vagrant``
 
-- <conda user> : Miniconda user, that will have permissions to add remove
-packages of the root environment.
+
+- <conda user> : Miniconda user, that will have permissions to add remove packages of the root environment.
 
 
 Boot Virtualized Environments (Vagrant)
@@ -131,6 +130,7 @@ Code Checks
 - **test code coverage** - TODO: underway lcov gcov
 - **test reports** - TODO: 
 
+
 .. _`LLVM Code Style`: https://llvm.org/docs/CodingStandards.html
 
 
@@ -138,12 +138,14 @@ Versioning
 ----------
 
 
-This project uses the following versioning scheme ``<major>.<minor>.<patch>[-<release>]``. The release part identifies the development stage. Release part is one of {prod, alpha, beta}, being prod optional.
+This project uses the following versioning scheme ``<major>.<minor>.<patch>[-<release>]``. 
+The release part identifies the development stage. Release part is one of {prod, alpha, beta}, being prod optional.
 
 Example:
 
 - ``1.0,0`` - Production
 - ``1.0.0-alpha`` - Development, Ready for Quality Assurance Tests (QA). TODO: To Be Decided...
+
 
 To increase the release version perform::
 
