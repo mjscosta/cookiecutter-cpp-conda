@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # @author: Mario Costa
-# @date: 06/11/2018
+# @date: 05/02/2019
  
-# Ubunto development environment bootstrap script
+# Debian development environment bootstrap script
 
 #------------------------------------------------------------------------------
 #            NOTE: DO NOT ADD LIBRARY DEPENDENCIES TO THIS FILE
@@ -19,18 +19,14 @@ apt-get install -y \
   apt-transport-https \
   ca-certificates \
   curl \
-  gnupg-agent \
+  gnupg2 \
   software-properties-common
-
-apt-get install -y clang-format
-apt-get install -y lcov gcovr
-apt-get install -y gcc-5
 
 #------------------------------------------------------------------------------
 # Start Install: docker
 #------------------------------------------------------------------------------
 
-# https://docs.docker.com/install/linux/docker-ce/ubuntu/
+# https://docs.docker.com/install/linux/docker-ce/debian/
 
 # if any of the packages below are installed, please remove them
 REMOVE_DOCKER_PACKAGES=$(dpkg --get-selections | \
@@ -44,10 +40,10 @@ fi
 
 # if docker repo was not added previously, add it
 if [ ! -f /etc/apt/sources.list.d/docker.list ]; then
-  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+  curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
 
   add-apt-repository \
-    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+    "deb [arch=amd64] https://download.docker.com/linux/debian \
     $(lsb_release -cs) \
     stable"
 fi

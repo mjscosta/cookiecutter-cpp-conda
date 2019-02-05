@@ -8,6 +8,7 @@ dependencies:
   - cmake=3.12.4
   - conan=1.9.0
   - doxygen=1.8.14
+  - lcov=1.13
   - conda-wrappers
   - pip:
     - gcovr==4.1
